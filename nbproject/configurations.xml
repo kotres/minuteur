@@ -25,7 +25,7 @@
     <itemPath>time_type.h</itemPath>
     <itemPath>time_piece.c</itemPath>
     <itemPath>time_piece.h</itemPath>
-    <itemPath>debug_main.c</itemPath>
+    <itemPath>GNUmain.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
