@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
     time_piece *tp=&piece;
     time_piece_initalize(tp);
     time_piece_define_hour(tp);
-    printf("%d",get_time_piece_value(tp));
+    printf("%d\n",get_time_piece_value(tp));
     return (EXIT_SUCCESS);
 }
 
