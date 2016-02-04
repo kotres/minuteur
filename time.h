@@ -7,14 +7,9 @@
 
 #ifndef TIME_H
 #define	TIME_H
-#include "segment.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-struct time{
-   struct segment segment[MAX_SEGMENT];
-};
-
-void change_segment_value(struct time *t,char high,char low,enum segment_names segment);
-void time_init(struct time *t);
 
 #endif	/* TIME_H */
 

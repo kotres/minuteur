@@ -20,9 +20,12 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>time.h</itemPath>
-    <itemPath>segment.c</itemPath>
     <itemPath>time.c</itemPath>
-    <itemPath>segment.h</itemPath>
+    <itemPath>time_type.c</itemPath>
+    <itemPath>time_type.h</itemPath>
+    <itemPath>time_piece.c</itemPath>
+    <itemPath>time_piece.h</itemPath>
+    <itemPath>debug_main.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
