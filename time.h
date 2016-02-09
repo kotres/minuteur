@@ -13,9 +13,12 @@
 #include "time_piece.h"
 #include "time_type.h"
 
+/* time is a struct that contains time_types usualy arranged in increasing order*/
+
 typedef struct{
     time_piece piece[MAX_TIME_INDEX];
 }time;
+
 
 time_piece* get_time_piece(time *t,time_type type);
 
