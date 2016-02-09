@@ -7,13 +7,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "time_piece.h"
+#include "functions_test.h"
 
 /*
  * 
  */
 int main(int argc, char** argv) {
-    time_piece piece;
+  test_function();
     return (EXIT_SUCCESS);
 }
 

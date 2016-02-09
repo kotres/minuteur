@@ -23,7 +23,7 @@ void time_piece_set(time_piece *tp,unsigned char value,time_type type)
 #ifdef __DEBUG
     assert(tp!=NULL);
     assert(time_type_valid(type)==1);
-    assert(tp->value<60);
+    assert(value<60);
 #endif
     tp->type=type;
     tp->value=value;
