@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/GNUmain.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/time_type.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/time_piece.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/flag.c</file>
             <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/time_type.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/time.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/Makefile</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/time.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/flag.h</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/timer.h</file>
             <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/main.c</file>
             <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/time_piece.h</file>
         </group>

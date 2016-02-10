@@ -26,6 +26,9 @@
     <itemPath>time_piece.c</itemPath>
     <itemPath>time_piece.h</itemPath>
     <itemPath>GNUmain.c</itemPath>
+    <itemPath>flag.h</itemPath>
+    <itemPath>flag.c</itemPath>
+    <itemPath>timer.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
