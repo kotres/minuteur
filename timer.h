@@ -19,6 +19,11 @@ typedef enum{
     main_timer
 }timer_name;
 
+typedef struct{
+  timer_name name;
+  unsigned char *register;
+  
+
 void timer_reset(timer_name name);
 
 

@@ -63,7 +63,7 @@ int time_valid(const time *t)
     return 1;
 }
 
-unsigned char time_get_value(const time *t,time_type type)
+unsigned char time_get_piece_value_info(const time *t,time_type type)
 {
 #ifdef __DEBUG
   assert(t!=NULL);
