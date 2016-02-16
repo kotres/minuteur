@@ -32,6 +32,9 @@
     <itemPath>bit_array.c</itemPath>
     <itemPath>timers.h</itemPath>
     <itemPath>16f1503_registers.h</itemPath>
+    <itemPath>output.h</itemPath>
+    <itemPath>music_select.h</itemPath>
+    <itemPath>input.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
