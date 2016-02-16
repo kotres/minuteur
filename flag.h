@@ -13,33 +13,27 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "bit_array.h"
 
-typedef enum{
-    TRUE,
-    FALSE
-}flag_state;
 
-typedef enum{
-    output_enable,
-    interrupt_enable,
-    change_output,
-    input_enable
-}flag_name;
 
 typedef struct{
-    flag_state state;
-    flag_name name;
-}flag;
+    bit_array state;
+    unsigned char name[8];
+    unsigned char nbr;
+}flag_array;
 
-int flag_state_valid(flag_state state);
 
-int flag_name_valid(flag_name name);
 
-int flag_valid(flag *f);
+int flag_valid(flag_array *f,flag_name name);
 
-void flag_set(flag *f,flag_state state,flag_name name);
+int flag_array_valid(flag_array *f);
 
-void flag_initialise(flag *f);
+void flag_set(flag_array *f,bit_state state,flag_name name);
+
+unsigned get_flag_state(flag_array *f,flag_name name);
+
+void flag_array_initialise(flag_array *f);
 
 #endif	/* FLAG_H */
 

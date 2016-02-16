@@ -28,7 +28,10 @@
     <itemPath>GNUmain.c</itemPath>
     <itemPath>flag.h</itemPath>
     <itemPath>flag.c</itemPath>
-    <itemPath>timer.h</itemPath>
+    <itemPath>bit_array.h</itemPath>
+    <itemPath>bit_array.c</itemPath>
+    <itemPath>timers.h</itemPath>
+    <itemPath>16f1503_registers.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
