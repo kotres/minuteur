@@ -22,16 +22,14 @@ typedef enum{
     ignore_button
 }flag_name;
 
-extern bit_array flags;
-
 
 int flag_name_valid(flag_name name);
 
-void flag_set(flag_name name);
+void flag_set(bit_field *flag_field,flag_name name);
 
-unsigned get_flag_state(flag_name name);
+unsigned char get_flag_state(bit_field *flag_field,flag_name name);
 
-void flag_array_initialise(void);
+void flag_array_initialise(bit_field flag_field);
 
 #endif	/* FLAG_H */
 

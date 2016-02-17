@@ -8,10 +8,13 @@
 #ifndef INPUT_H
 #define	INPUT_H
 
-extern volatile char interrupt_variable;
-extern volatile char interrupt_buffer;
 
-void input_get_button_state(void);
+extern volatile char interrupt_variable;
+extern volatile unsigned char *portA,*portB;
+
+unsigned char input_get_button_state(void);
+
+char input_get_interrupt_variable(void);
 
 
 

@@ -21,7 +21,7 @@ typedef enum{
             music         
 }output_adress;
 
-extern volatile bit_array *portA,*portB;
+extern volatile bit_array *latA,*latB;
 extern bit_array bufferA,bufferB;
 
 void output_transfer_buffer_to_port(void);
