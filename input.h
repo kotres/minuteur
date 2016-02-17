@@ -7,12 +7,13 @@
 
 #ifndef INPUT_H
 #define	INPUT_H
-
+#include "bit_array.h"
+#include "flag.h"
 
 extern volatile char interrupt_variable;
 extern volatile unsigned char *portA,*portB;
 
-unsigned char input_get_button_state(void);
+void input_update_flags_state(bit_array *f);
 
 char input_get_interrupt_variable(void);
 

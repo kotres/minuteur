@@ -15,10 +15,12 @@
 
 /* time is a struct that contains time_types usualy arranged in increasing order*/
 
-extern unsigned char second,minute,hour;
+typedef struct{
+   unsigned char second,minute,hour;
+}time;
 
 
-unsigned char get_time_piece_value(time_type type);
+unsigned char get_time_piece_value(time *t,time_type type);
 
 
 /*time_set_piece:
@@ -30,7 +32,7 @@ unsigned char get_time_piece_value(time_type type);
   -a valid time_type
 */
 
-void time_set_piece(time_type type);
+void time_set_piece(time *t,unsigned char val,time_type type);
 
 /*time_valid:
   Verifies weather a time structure is valid or not
@@ -40,7 +42,7 @@ void time_set_piece(time_type type);
   -1 if the time structure of the pointer is valid and 0 if not
 */
 
-int time_valid(void);
+int time_valid(time *t);
 
 
 
@@ -51,9 +53,11 @@ int time_valid(void);
   -a non null time pointer
 */
 
-void time_initialize(void);
+void time_initialize(time *t);
 
-unsigned char get_piece_segment_value(time_type type,unsigned char seg_val)
+unsigned char time_change_piece(time *t,char val,time_type type);
+
+unsigned char time_is_zero(time *t);
 
 #endif	/* TIME_H */
 

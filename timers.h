@@ -27,11 +27,11 @@ typedef union{
         unsigned char lower;
         unsigned char upper;
     };
-}main_timer_register;
+}sixteen_bit_timer_register;
 
 extern volatile unsigned char *button_timer;
 extern volatile unsigned char *output_timer;
-extern volatile main_timer_register *main_timer;
+extern volatile sixteen_bit_timer_register *main_timer;
 unsigned char main_timer_mode;
 extern bit_array *timer_enable_register;
 extern volatile bit_array *timer_flag_register;

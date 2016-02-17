@@ -19,17 +19,18 @@ typedef enum{
     segments_enable,
     button_pressed,
     time_changeable,
-    ignore_button
+    ignore_button,
+    menu_active
 }flag_name;
 
 
 int flag_name_valid(flag_name name);
 
-void flag_set(bit_field *flag_field,flag_name name);
+void flag_set(bit_array *flag_field,flag_name name);
 
-unsigned char get_flag_state(bit_field *flag_field,flag_name name);
+unsigned char get_flag_state(bit_array *flag_field,flag_name name);
 
-void flag_array_initialise(bit_field flag_field);
+void flag_array_initialise(bit_array flag_field);
 
 #endif	/* FLAG_H */
 
