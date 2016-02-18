@@ -7,8 +7,6 @@
 
 #ifndef TIME_H
 #define	TIME_H
-#define LOW 0
-#define HIGH 1
 #include <stdio.h>
 #include <stdlib.h>
 #include "time_type.h"

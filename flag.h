@@ -20,13 +20,13 @@ typedef enum{
     button_pressed,
     time_changeable,
     ignore_button,
-    menu_active
+    menu_active,
 }flag_name;
 
 
 int flag_name_valid(flag_name name);
 
-void flag_set(bit_array *flag_field,flag_name name);
+void flag_set(bit_array *flag_field,unsigned char val,flag_name name);
 
 unsigned char get_flag_state(bit_array *flag_field,flag_name name);
 

@@ -29,6 +29,8 @@ void instance_initialize(instance *in);
 
 void instance_update_input(instance *in);
 
+void instance_update_menu(instance *in);
+
 void instance_update_state(instance *in);
 
 void instance_update_output(instance *in);
