@@ -15,7 +15,7 @@
 
 typedef struct{
    unsigned char second,minute,hour;
-}time;
+}time_t;
 
 
 unsigned char get_time_piece_value(time *t,time_type type);

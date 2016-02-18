@@ -8,7 +8,7 @@
 #ifndef MUSIC_SELECT_H
 #define	MUSIC_SELECT_H
 
-#include "bit_array.h"
+#include "byte_union.h"
 
 typedef enum{
     time_up,
@@ -17,7 +17,6 @@ typedef enum{
             change_time,
             start
 }music_names;
-
 
 void music_select_initialize(bit_array *mus);
 

@@ -8,7 +8,7 @@
 #ifndef POINTS_H
 #define	POINTS_H
 #include "time_type.h"
-#include "flag.h"
+#include "flag_array.h"
 
 void points_initialize(flag_array *p);
 

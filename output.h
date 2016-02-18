@@ -8,7 +8,7 @@
 #ifndef OUTPUT_H
 #define	OUTPUT_H
 
-#include "bit_array.h"
+#include "byte_union.h"
 
 typedef enum{
             second_low,
@@ -22,11 +22,16 @@ typedef enum{
 }output_adress;
 
 extern volatile bit_array *latA,*latB;
-extern bit_array bufferA,bufferB;
+
+typedef struct{
+    unsigned char buffer[8];
+    unsigned char portA,portB;
+    flag_array change_flags;
+}output_t;
 
 void output_transfer_buffer_to_port(void);
 
-void output_initialize(void);
+void output_initialize(output_t *output);
 
 void output_value_to_adress(unsigned char val,output_adress adr);
 

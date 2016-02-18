@@ -7,8 +7,8 @@
 
 #ifndef INSTANCE_H
 #define	INSTANCE_H
-#include "flag.h"
-#include "bit_array.h"
+#include "flag_array.h"
+#include "byte_union.h"
 #include "time.h"
 #include "timers.h"
 #include "music_select.h"
@@ -16,25 +16,15 @@
 #include "input.h"
 
 typedef struct{
-    time t;
-    bit_array flags;
-    bit_array points;
-    bit_array mus_select;
-    unsigned char deltaT;
-    time_type time_to_modify;
-    
-}instance;
+    software_timer_t timer;
+    output_t output;
+}instance_t;
 
-void instance_initialize(instance *in);
+void instance_init(instance_t *instance);
 
-void instance_update_input(instance *in);
+void instance_update(instance_t *instance);
 
-void instance_update_menu(instance *in);
-
-void instance_update_state(instance *in);
-
-void instance_update_output(instance *in);
-
+void instance_loop(void);
 
 #endif	/* INSTANCE_H */
 

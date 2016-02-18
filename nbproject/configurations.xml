@@ -38,6 +38,8 @@
     <itemPath>instance.h</itemPath>
     <itemPath>instance.c</itemPath>
     <itemPath>points.h</itemPath>
+    <itemPath>menu.h</itemPath>
+    <itemPath>software_timer.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>

@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "bit_array.h"
+#include "byte_union.h"
 
 typedef enum{
     button,

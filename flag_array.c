@@ -1,25 +1,13 @@
-#include "flag.h"
+#include "flag_array.h"
 #include <assert.h>
 
 
-int flag_name_valid(flag_name name)
-{
-    if(name<0 || name>FLAG_NBR-1)
-        return 0;
-    return 1;
-}
 
-
-int flag_array_valid(flag_array *f)
+int flag_array_valid(flag_array_t *flag_array)
 {
     assert(f!=NULL);
-    if(f->nbr>8)
+    if(flag_array->flags_number>8)
         return 0;
-    int i=0;
-    for(i=0;i<7;i++){
-        if(flag_name_valid(f->name[i])==0)
-        return 0;
-    }
     return 1;
 }
 
