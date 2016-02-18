@@ -8,13 +8,13 @@
 #ifndef POINTS_H
 #define	POINTS_H
 #include "time_type.h"
-#include "bit_array.h"
+#include "flag.h"
 
-void points_initialize(bit_array *p);
+void points_initialize(flag_array *p);
 
-void points_set(bit_array *p,unsigned char val);
+void points_set(flag_array *p,unsigned char val);
 
-void points_set_point(bit_array *p,unsigned char val,time_type type);
+void points_set_point(flag_array *p,unsigned char val,time_type type);
 
 #endif	/* POINTS_H */
 

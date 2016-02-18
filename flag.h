@@ -23,14 +23,19 @@ typedef enum{
     menu_active,
 }flag_name;
 
+typedef struct{
+  bit_field flags;
+  unsigned char flags_nuber;
+}flag_array;
 
-int flag_name_valid(flag_name name);
 
-void flag_set(bit_array *flag_field,unsigned char val,flag_name name);
+//int flag_name_valid(flag_name name);
 
-unsigned char get_flag_state(bit_array *flag_field,flag_name name);
+void flag_set(array_array *flag_field,unsigned char val,unsigned char name);
 
-void flag_array_initialise(bit_array flag_field);
+unsigned char get_flag_state(flag_array *flag_field,unsigned char name);
+
+void flag_array_initialise(flag_array *flag_field);
 
 #endif	/* FLAG_H */
 
