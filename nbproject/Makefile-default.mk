@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c time.c time_type.c time_piece.c GNUmain.c flag.c bit_array.c instance.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c time.c time_type.c time_piece.c GNUmain.c instance.c byte_union.c flag_array.c input.c hardware_timers.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time.p1 ${OBJECTDIR}/time_type.p1 ${OBJECTDIR}/time_piece.p1 ${OBJECTDIR}/GNUmain.p1 ${OBJECTDIR}/flag.p1 ${OBJECTDIR}/bit_array.p1 ${OBJECTDIR}/instance.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/time.p1.d ${OBJECTDIR}/time_type.p1.d ${OBJECTDIR}/time_piece.p1.d ${OBJECTDIR}/GNUmain.p1.d ${OBJECTDIR}/flag.p1.d ${OBJECTDIR}/bit_array.p1.d ${OBJECTDIR}/instance.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time.p1 ${OBJECTDIR}/time_type.p1 ${OBJECTDIR}/time_piece.p1 ${OBJECTDIR}/GNUmain.p1 ${OBJECTDIR}/instance.p1 ${OBJECTDIR}/byte_union.p1 ${OBJECTDIR}/flag_array.p1 ${OBJECTDIR}/input.p1 ${OBJECTDIR}/hardware_timers.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/time.p1.d ${OBJECTDIR}/time_type.p1.d ${OBJECTDIR}/time_piece.p1.d ${OBJECTDIR}/GNUmain.p1.d ${OBJECTDIR}/instance.p1.d ${OBJECTDIR}/byte_union.p1.d ${OBJECTDIR}/flag_array.p1.d ${OBJECTDIR}/input.p1.d ${OBJECTDIR}/hardware_timers.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time.p1 ${OBJECTDIR}/time_type.p1 ${OBJECTDIR}/time_piece.p1 ${OBJECTDIR}/GNUmain.p1 ${OBJECTDIR}/flag.p1 ${OBJECTDIR}/bit_array.p1 ${OBJECTDIR}/instance.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time.p1 ${OBJECTDIR}/time_type.p1 ${OBJECTDIR}/time_piece.p1 ${OBJECTDIR}/GNUmain.p1 ${OBJECTDIR}/instance.p1 ${OBJECTDIR}/byte_union.p1 ${OBJECTDIR}/flag_array.p1 ${OBJECTDIR}/input.p1 ${OBJECTDIR}/hardware_timers.p1
 
 # Source Files
-SOURCEFILES=main.c time.c time_type.c time_piece.c GNUmain.c flag.c bit_array.c instance.c
+SOURCEFILES=main.c time.c time_type.c time_piece.c GNUmain.c instance.c byte_union.c flag_array.c input.c hardware_timers.c
 
 
 CFLAGS=
@@ -77,7 +77,7 @@ ifneq ($(INFORMATION_MESSAGE), )
 endif
 	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/minuteur.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
-MP_PROCESSOR_OPTION=16LF18345
+MP_PROCESSOR_OPTION=16F1503
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
@@ -121,22 +121,6 @@ ${OBJECTDIR}/GNUmain.p1: GNUmain.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/GNUmain.d ${OBJECTDIR}/GNUmain.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/GNUmain.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/flag.p1: flag.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/flag.p1.d 
-	@${RM} ${OBJECTDIR}/flag.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/flag.p1  flag.c 
-	@-${MV} ${OBJECTDIR}/flag.d ${OBJECTDIR}/flag.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/flag.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/bit_array.p1: bit_array.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/bit_array.p1.d 
-	@${RM} ${OBJECTDIR}/bit_array.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/bit_array.p1  bit_array.c 
-	@-${MV} ${OBJECTDIR}/bit_array.d ${OBJECTDIR}/bit_array.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/bit_array.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/instance.p1: instance.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/instance.p1.d 
@@ -144,6 +128,38 @@ ${OBJECTDIR}/instance.p1: instance.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/instance.p1  instance.c 
 	@-${MV} ${OBJECTDIR}/instance.d ${OBJECTDIR}/instance.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/instance.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/byte_union.p1: byte_union.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/byte_union.p1.d 
+	@${RM} ${OBJECTDIR}/byte_union.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/byte_union.p1  byte_union.c 
+	@-${MV} ${OBJECTDIR}/byte_union.d ${OBJECTDIR}/byte_union.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/byte_union.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/flag_array.p1: flag_array.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/flag_array.p1.d 
+	@${RM} ${OBJECTDIR}/flag_array.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/flag_array.p1  flag_array.c 
+	@-${MV} ${OBJECTDIR}/flag_array.d ${OBJECTDIR}/flag_array.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/flag_array.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/input.p1: input.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/input.p1.d 
+	@${RM} ${OBJECTDIR}/input.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/input.p1  input.c 
+	@-${MV} ${OBJECTDIR}/input.d ${OBJECTDIR}/input.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/input.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/hardware_timers.p1: hardware_timers.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/hardware_timers.p1.d 
+	@${RM} ${OBJECTDIR}/hardware_timers.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/hardware_timers.p1  hardware_timers.c 
+	@-${MV} ${OBJECTDIR}/hardware_timers.d ${OBJECTDIR}/hardware_timers.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/hardware_timers.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
@@ -186,22 +202,6 @@ ${OBJECTDIR}/GNUmain.p1: GNUmain.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/GNUmain.d ${OBJECTDIR}/GNUmain.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/GNUmain.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/flag.p1: flag.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/flag.p1.d 
-	@${RM} ${OBJECTDIR}/flag.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/flag.p1  flag.c 
-	@-${MV} ${OBJECTDIR}/flag.d ${OBJECTDIR}/flag.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/flag.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/bit_array.p1: bit_array.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/bit_array.p1.d 
-	@${RM} ${OBJECTDIR}/bit_array.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/bit_array.p1  bit_array.c 
-	@-${MV} ${OBJECTDIR}/bit_array.d ${OBJECTDIR}/bit_array.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/bit_array.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/instance.p1: instance.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/instance.p1.d 
@@ -209,6 +209,38 @@ ${OBJECTDIR}/instance.p1: instance.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/instance.p1  instance.c 
 	@-${MV} ${OBJECTDIR}/instance.d ${OBJECTDIR}/instance.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/instance.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/byte_union.p1: byte_union.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/byte_union.p1.d 
+	@${RM} ${OBJECTDIR}/byte_union.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/byte_union.p1  byte_union.c 
+	@-${MV} ${OBJECTDIR}/byte_union.d ${OBJECTDIR}/byte_union.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/byte_union.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/flag_array.p1: flag_array.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/flag_array.p1.d 
+	@${RM} ${OBJECTDIR}/flag_array.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/flag_array.p1  flag_array.c 
+	@-${MV} ${OBJECTDIR}/flag_array.d ${OBJECTDIR}/flag_array.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/flag_array.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/input.p1: input.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/input.p1.d 
+	@${RM} ${OBJECTDIR}/input.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/input.p1  input.c 
+	@-${MV} ${OBJECTDIR}/input.d ${OBJECTDIR}/input.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/input.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/hardware_timers.p1: hardware_timers.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/hardware_timers.p1.d 
+	@${RM} ${OBJECTDIR}/hardware_timers.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/hardware_timers.p1  hardware_timers.c 
+	@-${MV} ${OBJECTDIR}/hardware_timers.d ${OBJECTDIR}/hardware_timers.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/hardware_timers.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

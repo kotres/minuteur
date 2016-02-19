@@ -5,8 +5,7 @@
  * Created on 7 novembre 2015, 17:58
  */
 
- #include <xc.h> 
-#include "time.h"
+#include <xc.h> 
 #define _XTAL_FREQ 500000
  
  // CONFIG1 

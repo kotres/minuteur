@@ -10,7 +10,7 @@
 #include "flag_array.h"
 #include "byte_union.h"
 #include "time.h"
-#include "timers.h"
+#include "hardware_timers.h"
 #include "music_select.h"
 #include "points.h"
 #include "input.h"

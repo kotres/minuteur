@@ -8,10 +8,9 @@
 #ifndef INPUT_H
 #define	INPUT_H
 #include "flag_array.h"
-#include "timers.h"
+#include "hardware_timers.h"
 
 extern volatile char interrupt_variable;
-extern volatile unsigned char *portA,*portB;
 
 typedef enum{
   button_pressed,
@@ -22,15 +21,11 @@ typedef enum{
 
 typedef struct{
   char interrupt_buffer;
-  flag_array flags;
+  flag_array_t flags;
   unsigned char button_event;
 }input_t;
 
 void input_initialize(input_t input);
-
-void input_update_flags_state(bit_array *f);
-
-char input_get_interrupt_variable(void);
 
 void input_update(input_t *input);
 

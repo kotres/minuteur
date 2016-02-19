@@ -26,20 +26,21 @@
     <itemPath>time_piece.c</itemPath>
     <itemPath>time_piece.h</itemPath>
     <itemPath>GNUmain.c</itemPath>
-    <itemPath>flag.h</itemPath>
-    <itemPath>flag.c</itemPath>
-    <itemPath>bit_array.h</itemPath>
-    <itemPath>bit_array.c</itemPath>
-    <itemPath>timers.h</itemPath>
     <itemPath>output.h</itemPath>
     <itemPath>music_select.h</itemPath>
     <itemPath>input.h</itemPath>
-    <itemPath>16f18345_registers.h</itemPath>
     <itemPath>instance.h</itemPath>
     <itemPath>instance.c</itemPath>
     <itemPath>points.h</itemPath>
     <itemPath>menu.h</itemPath>
     <itemPath>software_timer.h</itemPath>
+    <itemPath>byte_union.h</itemPath>
+    <itemPath>byte_union.c</itemPath>
+    <itemPath>flag_array.h</itemPath>
+    <itemPath>flag_array.c</itemPath>
+    <itemPath>input.c</itemPath>
+    <itemPath>hardware_timers.h</itemPath>
+    <itemPath>hardware_timers.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
@@ -49,7 +50,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC16LF18345</targetDevice>
+        <targetDevice>PIC16F1503</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
@@ -182,7 +183,7 @@
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="voltagevalue" value="1.875"/>
+        <property key="voltagevalue" value="2.375"/>
       </PICkit3PlatformTool>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
