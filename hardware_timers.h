@@ -10,25 +10,27 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "byte_union.h"
+#include "flags.h"
 
-typedef enum{
-    button,
-    output,
-    main_timer
-}timer_name;
+#define ENABLE_FLAG 0
+#define OVERFLOW_FLAG 1
 
-void hardware_timers_initialize(void);
+typedef struct{
+  unsigned short register,maximum;
+  flag_array_t flags;
+}software_timer_t;
 
-void hardware_timers_timer_initialize(timer_name name);
+void software_timer_initialize(software_timer_t *timer);
 
-void hardware_timers_set_enable(timer_name name,unsigned char val);
+void software_timer_set_enable(software_timer_t *timer,unsigned char val);
 
-unsigned char hardware_timers_get_overflow_value(timer_name name);
+unsigned char software_timer_get_overflow_value(software_timer_t *timer);
 
-void hardware_timers_clear_overflow(timer_name name);
+unsigned char software_timer_update(software_timer_t *timer);
 
-void hardware_timers_clear(timer_name name);
+void software_timer_clear_overflow(software_timer_t *timer);
+
+void software_timer_clear(software_timer_t *timer);
 
 
 #endif	/* HARDWARE_TIMERS_H */
