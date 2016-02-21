@@ -18,7 +18,7 @@ typedef struct{
 }time_t;
 
 
-unsigned char get_time_piece_value(time *t,time_type type);
+unsigned char get_time_piece_value(time_t *t,time_type type);
 
 
 /*time_set_piece:
@@ -30,7 +30,7 @@ unsigned char get_time_piece_value(time *t,time_type type);
   -a valid time_type
 */
 
-void time_set_piece(time *t,unsigned char val,time_type type);
+void time_set_piece(time_t *t,unsigned char val,time_type type);
 
 /*time_valid:
   Verifies weather a time structure is valid or not
@@ -40,7 +40,7 @@ void time_set_piece(time *t,unsigned char val,time_type type);
   -1 if the time structure of the pointer is valid and 0 if not
 */
 
-int time_valid(time *t);
+int time_valid(time_t *t);
 
 
 
@@ -51,11 +51,11 @@ int time_valid(time *t);
   -a non null time pointer
 */
 
-void time_initialize(time *t);
+void time_initialize(time_t *t);
 
-unsigned char time_change_piece(time *t,char val,time_type type);
+unsigned char time_change_piece(time_t *t,char val,time_type type);
 
-unsigned char time_is_zero(time *t);
+unsigned char time_is_zero(time_t *t);
 
 #endif	/* TIME_H */
 

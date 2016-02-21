@@ -1,0 +1,368 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"19 byte_union.h
+[s S7 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S7 . b0 b1 b2 b3 b4 b5 b6 b7 ]
+"17
+[u S6 `uc 1 `S7 1 ]
+[n S6 . byte . ]
+"18 flag_array.h
+[s S8 `S6 1 `uc 1 ]
+[n S8 . flags flags_number ]
+"18 C:\Program Files (x86)\Microchip\xc8\v1.36\include\assert.h
+[v __fassert `(v ~T0 @X0 0 ef3`i`*Cuc`*Cuc ]
+"32 byte_union.h
+[v _byte_union_set_bit `(v ~T0 @X0 0 ef3`*S6`uc`uc ]
+"34
+[v _byte_union_initialize `(v ~T0 @X0 0 ef1`*S6 ]
+"24
+[v _byte_union_get_bit_value `(uc ~T0 @X0 0 ef2`*CS6`uc ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;byte_union.h: 17: typedef union{
+[; ;byte_union.h: 18: unsigned char byte;
+[; ;byte_union.h: 19: struct{
+[; ;byte_union.h: 20: unsigned b0:1, b1:1, b2:1, b3:1, b4:1, b5:1, b6:1, b7:1;
+[; ;byte_union.h: 21: };
+[; ;byte_union.h: 22: }byte_union_t;
+[; ;byte_union.h: 24: unsigned char byte_union_get_bit_value(const byte_union_t *byte_u,unsigned char bit_nbr);
+[; ;byte_union.h: 26: unsigned char *byte_union_get_byte(byte_union_t *byte_u);
+[; ;byte_union.h: 28: const unsigned char *byte_union_get_byte_info(const byte_union_t *byte_u);
+[; ;byte_union.h: 30: void byte_union_set_byte(byte_union_t *byte_u,unsigned char val);
+[; ;byte_union.h: 32: void byte_union_set_bit(byte_union_t *byte_u, unsigned char state,unsigned char bit_nbr);
+[; ;byte_union.h: 34: void byte_union_initialize(byte_union_t *byte_u);
+[; ;flag_array.h: 18: typedef struct{
+[; ;flag_array.h: 19: byte_union_t flags;
+[; ;flag_array.h: 20: unsigned char flags_number;
+[; ;flag_array.h: 21: }flag_array_t;
+[; ;flag_array.h: 23: void flag_array_set_flag(flag_array_t *flag_array,unsigned char state,unsigned char name);
+[; ;flag_array.h: 25: unsigned char flag_array_get_flag_state(const flag_array_t *flag_array,unsigned char name);
+[; ;flag_array.h: 27: void flag_array_initialise(flag_array_t *flag_array);
+[; ;flag_array.h: 29: int flag_array_valid(const flag_array_t *flag_array);
+[; ;flag_array.h: 31: void flag_array_set_numbers(flag_array_t *flag_array,unsigned char nbr);
+[; ;assert.h: 18: extern void _fassert(int, const char *, const char *);
+[; ;assert.h: 25: extern void __builtin_software_breakpoint(void);
+"6 flag_array.c
+[v _flag_array_valid `(i ~T0 @X0 1 ef1`*CS8 ]
+"7
+{
+[; ;flag_array.c: 6: int flag_array_valid(const flag_array_t *flag_array)
+[; ;flag_array.c: 7: {
+[e :U _flag_array_valid ]
+"6
+[v _flag_array `*CS8 ~T0 @X0 1 r1 ]
+"7
+[f ]
+[; ;flag_array.c: 8: if(!(flag_array!=(0))) {_fassert(8, "flag_array.c", "flag_array!=(0)");};
+"8
+[e $ ! ! != _flag_array -> -> 0 `i `*CS8 10  ]
+{
+[e ( __fassert (3 , , -> 8 `i :s 1C :s 2C ]
+}
+[e :U 10 ]
+[; ;flag_array.c: 9: if(flag_array->flags_number>8)
+"9
+[e $ ! > -> . *U _flag_array 1 `i -> 8 `i 11  ]
+[; ;flag_array.c: 10: return 0;
+"10
+[e ) -> 0 `i ]
+[e $UE 9  ]
+[e :U 11 ]
+[; ;flag_array.c: 11: return 1;
+"11
+[e ) -> 1 `i ]
+[e $UE 9  ]
+[; ;flag_array.c: 12: }
+"12
+[e :UE 9 ]
+}
+"14
+[v _flag_array_set_flag `(v ~T0 @X0 1 ef3`*S8`uc`uc ]
+"15
+{
+[; ;flag_array.c: 14: void flag_array_set_flag(flag_array_t *flag_array,unsigned char state,unsigned char name)
+[; ;flag_array.c: 15: {
+[e :U _flag_array_set_flag ]
+"14
+[v _flag_array `*S8 ~T0 @X0 1 r1 ]
+[v _state `uc ~T0 @X0 1 r2 ]
+[v _name `uc ~T0 @X0 1 r3 ]
+"15
+[f ]
+[; ;flag_array.c: 17: if(!(flag_array!=(0))) {_fassert(17, "flag_array.c", "flag_array!=(0)");};
+"17
+[e $ ! ! != _flag_array -> -> 0 `i `*S8 13  ]
+{
+[e ( __fassert (3 , , -> 17 `i :s 3C :s 4C ]
+}
+[e :U 13 ]
+[; ;flag_array.c: 18: if(!(flag_array_valid(flag_array))) {_fassert(18, "flag_array.c", "flag_array_valid(flag_array)");};
+"18
+[e $ ! ! != ( _flag_array_valid (1 -> _flag_array `*CS8 -> 0 `i 14  ]
+{
+[e ( __fassert (3 , , -> 18 `i :s 5C :s 6C ]
+}
+[e :U 14 ]
+[; ;flag_array.c: 19: if(!(state==0 || state==1)) {_fassert(19, "flag_array.c", "state==0 || state==1");};
+"19
+[e $ ! ! || == -> _state `i -> 0 `i == -> _state `i -> 1 `i 15  ]
+{
+[e ( __fassert (3 , , -> 19 `i :s 7C :s 8C ]
+}
+[e :U 15 ]
+[; ;flag_array.c: 20: if(!(name<flag_array->flags_number)) {_fassert(20, "flag_array.c", "name<flag_array->flags_number");};
+"20
+[e $ ! ! < -> _name `i -> . *U _flag_array 1 `i 16  ]
+{
+[e ( __fassert (3 , , -> 20 `i :s 9C :s 10C ]
+}
+[e :U 16 ]
+[; ;flag_array.c: 22: byte_union_set_bit(&flag_array->flags,state,name);
+"22
+[e ( _byte_union_set_bit (3 , , &U . *U _flag_array 0 _state _name ]
+[; ;flag_array.c: 24: if(!(flag_array_valid(flag_array))) {_fassert(24, "flag_array.c", "flag_array_valid(flag_array)");};
+"24
+[e $ ! ! != ( _flag_array_valid (1 -> _flag_array `*CS8 -> 0 `i 17  ]
+{
+[e ( __fassert (3 , , -> 24 `i :s 11C :s 12C ]
+}
+[e :U 17 ]
+[; ;flag_array.c: 26: }
+"26
+[e :UE 12 ]
+}
+"28
+[v _flag_array_initialise `(v ~T0 @X0 1 ef1`*S8 ]
+"29
+{
+[; ;flag_array.c: 28: void flag_array_initialise(flag_array_t *flag_array)
+[; ;flag_array.c: 29: {
+[e :U _flag_array_initialise ]
+"28
+[v _flag_array `*S8 ~T0 @X0 1 r1 ]
+"29
+[f ]
+[; ;flag_array.c: 31: if(!(flag_array!=(0))) {_fassert(31, "flag_array.c", "flag_array!=(0)");};
+"31
+[e $ ! ! != _flag_array -> -> 0 `i `*S8 19  ]
+{
+[e ( __fassert (3 , , -> 31 `i :s 13C :s 14C ]
+}
+[e :U 19 ]
+[; ;flag_array.c: 33: byte_union_initialize(&flag_array->flags);
+"33
+[e ( _byte_union_initialize (1 &U . *U _flag_array 0 ]
+[; ;flag_array.c: 34: flag_array->flags_number=0;
+"34
+[e = . *U _flag_array 1 -> -> 0 `i `uc ]
+[; ;flag_array.c: 36: if(!(flag_array_valid(flag_array)==1)) {_fassert(36, "flag_array.c", "flag_array_valid(flag_array)==1");};
+"36
+[e $ ! ! == ( _flag_array_valid (1 -> _flag_array `*CS8 -> 1 `i 20  ]
+{
+[e ( __fassert (3 , , -> 36 `i :s 15C :s 16C ]
+}
+[e :U 20 ]
+[; ;flag_array.c: 38: }
+"38
+[e :UE 18 ]
+}
+"40
+[v _flag_array_set_numbers `(v ~T0 @X0 1 ef2`*S8`uc ]
+"41
+{
+[; ;flag_array.c: 40: void flag_array_set_numbers(flag_array_t *flag_array,unsigned char nbr)
+[; ;flag_array.c: 41: {
+[e :U _flag_array_set_numbers ]
+"40
+[v _flag_array `*S8 ~T0 @X0 1 r1 ]
+[v _nbr `uc ~T0 @X0 1 r2 ]
+"41
+[f ]
+[; ;flag_array.c: 43: if(!(flag_array!=(0))) {_fassert(43, "flag_array.c", "flag_array!=(0)");};
+"43
+[e $ ! ! != _flag_array -> -> 0 `i `*S8 22  ]
+{
+[e ( __fassert (3 , , -> 43 `i :s 17C :s 18C ]
+}
+[e :U 22 ]
+[; ;flag_array.c: 44: if(!(nbr<=8)) {_fassert(44, "flag_array.c", "nbr<=8");};
+"44
+[e $ ! ! <= -> _nbr `i -> 8 `i 23  ]
+{
+[e ( __fassert (3 , , -> 44 `i :s 19C :s 20C ]
+}
+[e :U 23 ]
+[; ;flag_array.c: 46: flag_array->flags_number=nbr;
+"46
+[e = . *U _flag_array 1 _nbr ]
+[; ;flag_array.c: 48: if(!(flag_array_valid(flag_array)==1)) {_fassert(48, "flag_array.c", "flag_array_valid(flag_array)==1");};
+"48
+[e $ ! ! == ( _flag_array_valid (1 -> _flag_array `*CS8 -> 1 `i 24  ]
+{
+[e ( __fassert (3 , , -> 48 `i :s 21C :s 22C ]
+}
+[e :U 24 ]
+[; ;flag_array.c: 50: }
+"50
+[e :UE 21 ]
+}
+"52
+[v _flag_array_get_flag_state `(uc ~T0 @X0 1 ef2`*CS8`uc ]
+"53
+{
+[; ;flag_array.c: 52: unsigned char flag_array_get_flag_state(const flag_array_t *flag_array,unsigned char name)
+[; ;flag_array.c: 53: {
+[e :U _flag_array_get_flag_state ]
+"52
+[v _flag_array `*CS8 ~T0 @X0 1 r1 ]
+[v _name `uc ~T0 @X0 1 r2 ]
+"53
+[f ]
+[; ;flag_array.c: 55: if(!(flag_array!=(0))) {_fassert(55, "flag_array.c", "flag_array!=(0)");};
+"55
+[e $ ! ! != _flag_array -> -> 0 `i `*CS8 26  ]
+{
+[e ( __fassert (3 , , -> 55 `i :s 23C :s 24C ]
+}
+[e :U 26 ]
+[; ;flag_array.c: 56: if(!(flag_array_valid(flag_array)==1)) {_fassert(56, "flag_array.c", "flag_array_valid(flag_array)==1");};
+"56
+[e $ ! ! == ( _flag_array_valid (1 _flag_array -> 1 `i 27  ]
+{
+[e ( __fassert (3 , , -> 56 `i :s 25C :s 26C ]
+}
+[e :U 27 ]
+[; ;flag_array.c: 57: if(!(name<flag_array->flags_number)) {_fassert(57, "flag_array.c", "name<flag_array->flags_number");};
+"57
+[e $ ! ! < -> _name `i -> . *U _flag_array 1 `i 28  ]
+{
+[e ( __fassert (3 , , -> 57 `i :s 27C :s 28C ]
+}
+[e :U 28 ]
+"59
+[v _val `uc ~T0 @X0 1 a ]
+[; ;flag_array.c: 59: unsigned char val=byte_union_get_bit_value(&flag_array->flags,name);
+[e = _val ( _byte_union_get_bit_value (2 , &U . *U _flag_array 0 _name ]
+[; ;flag_array.c: 61: if(!(val==0 || val==1)) {_fassert(61, "flag_array.c", "val==0 || val==1");};
+"61
+[e $ ! ! || == -> _val `i -> 0 `i == -> _val `i -> 1 `i 29  ]
+{
+[e ( __fassert (3 , , -> 61 `i :s 29C :s 30C ]
+}
+[e :U 29 ]
+[; ;flag_array.c: 63: return val;
+"63
+[e ) _val ]
+[e $UE 25  ]
+[; ;flag_array.c: 64: }
+"64
+[e :UE 25 ]
+}
+[a 10C 110 97 109 101 60 102 108 97 103 95 97 114 114 97 121 45 62 102 108 97 103 115 95 110 117 109 98 101 114 0 ]
+[a 28C 110 97 109 101 60 102 108 97 103 95 97 114 114 97 121 45 62 102 108 97 103 115 95 110 117 109 98 101 114 0 ]
+[a 1C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 3C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 5C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 7C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 9C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 11C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 13C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 15C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 17C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 19C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 21C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 23C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 25C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 27C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 29C 102 108 97 103 95 97 114 114 97 121 46 99 0 ]
+[a 20C 110 98 114 60 61 56 0 ]
+[a 30C 118 97 108 61 61 48 32 124 124 32 118 97 108 61 61 49 0 ]
+[a 8C 115 116 97 116 101 61 61 48 32 124 124 32 115 116 97 116 101 61 61 49 0 ]
+[a 16C 102 108 97 103 95 97 114 114 97 121 95 118 97 108 105 100 40 102 108 97 103 95 97 114 114 97 121 41 61 61 49 0 ]
+[a 22C 102 108 97 103 95 97 114 114 97 121 95 118 97 108 105 100 40 102 108 97 103 95 97 114 114 97 121 41 61 61 49 0 ]
+[a 26C 102 108 97 103 95 97 114 114 97 121 95 118 97 108 105 100 40 102 108 97 103 95 97 114 114 97 121 41 61 61 49 0 ]
+[a 6C 102 108 97 103 95 97 114 114 97 121 95 118 97 108 105 100 40 102 108 97 103 95 97 114 114 97 121 41 0 ]
+[a 12C 102 108 97 103 95 97 114 114 97 121 95 118 97 108 105 100 40 102 108 97 103 95 97 114 114 97 121 41 0 ]
+[a 2C 102 108 97 103 95 97 114 114 97 121 33 61 40 48 41 0 ]
+[a 4C 102 108 97 103 95 97 114 114 97 121 33 61 40 48 41 0 ]
+[a 14C 102 108 97 103 95 97 114 114 97 121 33 61 40 48 41 0 ]
+[a 18C 102 108 97 103 95 97 114 114 97 121 33 61 40 48 41 0 ]
+[a 24C 102 108 97 103 95 97 114 114 97 121 33 61 40 48 41 0 ]

@@ -8,12 +8,12 @@
 #ifndef INSTANCE_H
 #define	INSTANCE_H
 #include "flag_array.h"
-#include "byte_union.h"
 #include "time.h"
-#include "hardware_timers.h"
+#include "software_timer.h"
 #include "music_select.h"
 #include "points.h"
 #include "input.h"
+#include "output.h"
 
 typedef struct{
     software_timer_t timer;

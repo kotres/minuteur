@@ -21,7 +21,7 @@ typedef union{
     };
 }byte_union_t;
 
-unsigned char byte_union_get_bit_value(byte_union_t *byte_u,unsigned char bit_nbr);
+unsigned char byte_union_get_bit_value(const byte_union_t *byte_u,unsigned char bit_nbr);
 
 unsigned char *byte_union_get_byte(byte_union_t *byte_u);
 

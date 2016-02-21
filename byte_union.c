@@ -1,7 +1,7 @@
 #include "byte_union.h"
 #include <assert.h>
 
-unsigned char byte_union_get_bit_value(byte_union_t *byte_u,unsigned char bit_nbr)
+unsigned char byte_union_get_bit_value(const byte_union_t *byte_u,unsigned char bit_nbr)
 {
 #ifdef __DEBUG
     assert(byte_u!=NULL);
@@ -80,7 +80,7 @@ void byte_union_set_byte(byte_union_t *byte_u,unsigned char val)
 void byte_union_set_bit(byte_union_t *byte_u, unsigned char state,unsigned char bit_nbr)
 {
 #ifdef __DEBUG
-    assert(array!=NULL);
+    assert(byte_u!=NULL);
     assert(state==NOT_SET || state==SET);
     assert(bit_nbr<8);
 #endif 
@@ -117,5 +117,5 @@ void byte_union_initialize(byte_union_t *byte_u)
 #ifdef __DEBUG
     assert(byte_u!=NULL);
 #endif
-    byte_union_set_byte(byte,0);
+    byte_union_set_byte(byte_u,0);
 }

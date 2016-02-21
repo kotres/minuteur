@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/hardware_timers.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/byte_union.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/flag_array.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/input.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/byte_union.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/hardware_timers.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/input.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/main.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/input.h</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/byte_union.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/flag_array.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/input.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/software_timer.h</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/main_timer.h</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/byte_union.h</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/software_timer.c</file>
         </group>
     </open-files>
 </project-private>

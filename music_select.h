@@ -18,13 +18,13 @@ typedef enum{
             start
 }music_names;
 
-void music_select_initialize(bit_array *mus);
+void music_select_initialize(byte_union_t *mus);
 
-void music_select_change(bit_array *mus,music_names name);
+void music_select_change(byte_union_t *mus,music_names name);
 
-void music_select_start(bit_array *mus);
+void music_select_start(byte_union_t *mus);
 
-void music_select_stop(bit_array *mus);
+void music_select_stop(byte_union_t *mus);
 
 #endif	/* MUSIC_H */
 

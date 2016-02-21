@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/minuteur.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=minuteur.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=minuteur.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/minuteur.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=minuteur.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=minuteur/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/minuteur.x/bin
+makeDirectory ${TMPDIR}/minuteur/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/minuteur.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/minuteur.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/minuteur.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/minuteur.tar *
 checkReturnCode
 
 # Cleanup
