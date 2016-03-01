@@ -30,7 +30,7 @@ void test_of_flag_array(void)
         printf("flag_array_initialize KO\n");
     printf("test of flag_array_valid\n");
     array.flags_number=10;
-    if(flag_array_valid(&array)==0)
+    if(flag_array_valid(&array)==1)
         printf("flag_array_valid KO\n");
     printf("test of flag_array_set_numbers\n");
     flag_array_set_numbers(&array,4);
