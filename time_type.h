@@ -17,7 +17,7 @@ typedef enum{
     second,
     minute,
     hour
-}time_type;
+}time_type_t;
 
 /* time_type_valid:
    Checks wether the time type it is given is valid or not
@@ -27,7 +27,7 @@ typedef enum{
    1 if the time_type is within the enum and 0 if not
 */
 
-int time_type_valid(time_type type);
+int time_type_valid(time_type_t type);
 
 #endif	/* TIME_TYPE_H */
 

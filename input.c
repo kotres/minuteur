@@ -3,17 +3,20 @@
 
 volatile char interrupt_variable=0;
 
+int input_valid(input_t *input)
+{
+    return 1;
+}
+
 void input_initialize(input_t *input)
 {
 #ifdef __DEBUG
     assert(input!=NULL);
 #endif
-    software_timer_initialize(&input->button_timer);
-    software_timer_set_preset(&input->button_timer,100);
-    input->button_event=not_pressed;
     input->interrupt_buffer=0;
     interrupt_variable=0;
-    input->ignore_button=NOT_SET;
+    flag_array_initialise(&input->button_flags);
+    flag_array_set_numbers(&input->button_flags,4);
 #ifdef __DEBUG
     assert(input_valid(input));
 #endif
@@ -27,44 +30,73 @@ void input_update(input_t *input)
 #endif
     input->interrupt_buffer=interrupt_variable;
     interrupt_variable=0;
-    if(RB6==0){
-        if(software_timer_get_enable_value(&input->button_timer)==SET){
-            software_timer_set_enable(&input->button_timer,NOT_SET);
-            if(software_timer_get_overflow_value(&input->button_timer)==SET)
-                input->button_event=long_press;
-            else
-                input->button_event=short_press;
-            software_timer_clear(&input->button_timer);
+    if(RA2==0){
+        if(flag_array_get_flag_state(&input->button_flags,menu_button_ignore)==NOT_SET){
+            flag_array_set_flag(&input->button_flags,SET,menu_button_state);
+            flag_array_set_flag(&input->button_flags,SET,menu_button_ignore);
         }
-        else
-            input->button_event=not_pressed;
-        input->ignore_button=NOT_SET;
+        else{
+            flag_array_set_flag(&input->button_flags,NOT_SET,menu_button_state);
+        }
     }
     else{
-         if(software_timer_get_enable_value(&input->button_timer)==NOT_SET){
-             if(input->ignore_button==SET){
-                 input->button_event=not_pressed;
-             }
-             else{
-                 software_timer_set_enable(&input->button_timer,SET);
-                 input->button_event=pressed;
-             }
-         }
-         else{
-             if(software_timer_get_overflow_value(&input->button_timer)==SET){
-                 software_timer_set_enable(&input->button_timer,NOT_SET);
-                 input->ignore_button=SET;
-                 software_timer_clear(&input->button_timer);
-                 input->button_event=long_press;
-             }
-             else
-                input->button_event=pressed; 
-         }
+        flag_array_set_flag(&input->button_flags,NOT_SET,menu_button_ignore);
+        flag_array_set_flag(&input->button_flags,NOT_SET,menu_button_ignore);
     }
-    software_timer_update(&input->button_timer);
+    if(RA3==0){
+        if(flag_array_get_flag_state(&input->button_flags,time_button_ignore)==NOT_SET){
+            flag_array_set_flag(&input->button_flags,SET,time_button_state);
+            flag_array_set_flag(&input->button_flags,SET,time_button_ignore);
+        }
+        else{
+            flag_array_set_flag(&input->button_flags,NOT_SET,time_button_state);
+        }
+    }
+    else{
+        flag_array_set_flag(&input->button_flags,NOT_SET,time_button_ignore);
+        flag_array_set_flag(&input->button_flags,NOT_SET,time_button_ignore);
+    }
 }
 
 void interrupt input_interrupt_function(void)
 {
     
+}
+
+unsigned char input_get_button_event(input_t *input,unsigned char button)
+{
+#ifdef __DEBUG
+    assert(input!=NULL);
+    assert(input_valid(input));
+    assert(button==PAUSE_BUTTON||button==MENU_BUTTON);
+#endif
+    if(button==PAUSE_BUTTON)
+        return flag_array_get_flag_state(&input->button_flags,time_button_state);
+    return flag_array_get_flag_state(&input->button_flags,menu_button_state);
+}
+
+char* input_get_interrupt_buffer(input_t *input)
+{
+#ifdef __DEBUG
+    assert(input!=NULL);
+    assert(input_valid(input));
+#endif
+    char* buffer=input->interrupt_buffer;
+#ifdef __DEBUG
+    assert(buffer!=NULL);
+#endif
+    return buffer;
+}
+
+const char* input_get_interrupt_buffer_info(const input_t *input)
+{
+#ifdef __DEBUG
+    assert(input!=NULL);
+    assert(input_valid(input));
+#endif
+    const char* buffer=input->interrupt_buffer;
+#ifdef __DEBUG
+    assert(buffer!=NULL);
+#endif
+    return buffer;
 }

@@ -11,20 +11,22 @@
 #include "software_timer.h"
 #include <xc.h>
 
+#define PAUSE_BUTTON 0
+#define MENU_BUTTON 1
+
+
 extern volatile char interrupt_variable;
 
 typedef enum{
-  not_pressed,
-  pressed,
-  short_press,
-  long_press
-}button_event_t;
+    time_button_state,
+            time_button_ignore,
+            menu_button_state,
+            menu_button_ignore
+}button_flags_names;
 
 typedef struct{
+  flag_array_t button_flags;
   char interrupt_buffer;
-  unsigned char ignore_button;
-  button_event_t button_event;
-  software_timer_t button_timer;
 }input_t;
 
 int input_valid(input_t *input);
@@ -35,9 +37,7 @@ void input_initialize(input_t *input);
 
 void input_update(input_t *input);
 
-button_event_t* input_get_button_event(input_t *input);
-
-button_event_t* input_get_button_event_info(const input_t *input);
+unsigned char input_get_button_event(input_t *input,unsigned char button);
 
 char* input_get_interrupt_buffer(input_t *input);
 
