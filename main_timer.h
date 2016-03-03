@@ -11,10 +11,9 @@
 
 typedef struct{
     time_t time;
-    flag_array flags;
-    byte_union_t segments[7];
+    flag_array_t flags;
+    byte_union_t segments[6];
     menu_t menu;
-    
 }main_timer_t;
 
 int main_timer_valid(main_timer_t *timer);

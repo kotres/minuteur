@@ -6,7 +6,7 @@ int menu_valid(menu_t *menu)
     return 1;
 }
 
-void menu_init(menu_t *menu)
+void menu_initialize(menu_t *menu)
 {
 #ifdef __DEBUG
     assert(menu!=NULL);
@@ -17,7 +17,7 @@ void menu_init(menu_t *menu)
     flag_array_initialise(&menu->status);
     flag_array_set_numbers(&menu->status,3);
     flag_array_set_flag(&menu->status,SET,pause_status);
-    flag_array_set_flag(&menu->status,SET,segmants_enable);
+    flag_array_set_flag(&menu->status,SET,segments_enable);
     menu->points.byte=0;
 #ifdef __DEBUG
     assert(menu_valid(menu)==1);
@@ -135,5 +135,5 @@ time_type_t* menu_get_time_to_change(menu_t *menu)
     assert(menu!=NULL);
     assert(menu_valid(menu)==1);
 #endif
-    return time->time_type_to_change;
+    return menu->time_type_to_change;
 }

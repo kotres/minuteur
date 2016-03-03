@@ -1,7 +1,7 @@
 #include "time.h"
 #include <assert.h>
 
-unsigned char* time_get_piece(time_t *t,time_type type)
+unsigned char* time_get_piece(time_t *t,time_type_t type)
 {
 #ifdef __DEBUG
   assert(t!=NULL);
@@ -18,10 +18,10 @@ unsigned char* time_get_piece(time_t *t,time_type type)
     return &t->time_hour;
     break;
   }
-  rerurn -1;
+  return -1;
 }
 
-void time_set_piece(time_t *t,unsigned char val,time_type type)
+void time_set_piece(time_t *t,unsigned char val,time_type_t type)
 {
 #ifdef __DEBUG
   assert(t!=NULL);
@@ -53,7 +53,7 @@ void time_initialize(time_t *t)
 #endif
 }
 
-void time_change_piece(time_t *t,char val,time_type type)
+void time_change_piece(time_t *t,char val,time_type_t type)
 {
 #ifdef __DEBUG
   assert(t!=NULL);
@@ -73,7 +73,6 @@ void time_change_piece(time_t *t,char val,time_type type)
     *piece= divider-mod;
   else
     *piece= mod;
-  return -1;
 }
 
 unsigned char time_is_zero(time_t *t)
@@ -82,9 +81,9 @@ unsigned char time_is_zero(time_t *t)
   assert(t!=NULL);
   assert(time_valid(t));
 #endif
-  if(t->second==0){
-    if(t->minute==0){
-      if(t->hour==0)
+  if(t->time_second==0){
+    if(t->time_minute==0){
+      if(t->time_hour==0)
 	return 1;
     }
   }

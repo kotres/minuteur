@@ -2,22 +2,20 @@
  * File:   instance.h
  * Author: Michel
  *
- * Created on 17 février 2016, 16:33
+ * Created on 17 fï¿½vrier 2016, 16:33
  */
 
 #ifndef INSTANCE_H
 #define	INSTANCE_H
 #include "flag_array.h"
-#include "time.h"
+#include "main_timer.h"
 #include "software_timer.h"
-#include "music_select.h"
-#include "points.h"
-#include "input.h"
 #include "output.h"
 
 typedef struct{
-    software_timer_t timer;
+    main_timer_t main_timer;
     output_t output;
+    software_timer_t software_timer;
 }instance_t;
 
 void instance_init(instance_t *instance);

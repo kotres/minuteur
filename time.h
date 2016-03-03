@@ -2,7 +2,7 @@
  * File:   time.h
  * Author: Michel
  *
- * Created on 3 février 2016, 11:04
+ * Created on 3 fï¿½vrier 2016, 11:04
  */
 
 #ifndef TIME_H
@@ -17,7 +17,7 @@ typedef struct{
    unsigned char time_second,time_minute,time_hour;
 }time_t;
 
-unsigned char* time_get_piece(time_t *t,time_type type);
+unsigned char* time_get_piece(time_t *t,time_type_t type);
 
 /*time_set_piece:
   Sets the time_piece of the time struct named by the time_type type
@@ -28,7 +28,7 @@ unsigned char* time_get_piece(time_t *t,time_type type);
   -a valid time_type
 */
 
-void time_set_piece(time_t *t,unsigned char val,time_type type);
+void time_set_piece(time_t *t,unsigned char val,time_type_t type);
 
 /*time_valid:
   Verifies weather a time structure is valid or not
@@ -51,7 +51,7 @@ int time_valid(time_t *t);
 
 void time_initialize(time_t *t);
 
-void time_change_piece(time_t *t,char val,time_type type);
+void time_change_piece(time_t *t,char val,time_type_t type);
 
 unsigned char time_is_zero(time_t *t);
 

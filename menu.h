@@ -22,7 +22,7 @@ typedef struct{
 
 int menu_valid(menu_t *menu);
 
-void menu_init(menu_t *menu);
+void menu_initialize(menu_t *menu);
 
 void menu_update(menu_t *menu);
 
