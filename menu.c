@@ -34,29 +34,35 @@ void menu_update(menu_t *menu)
     menu->deltaT=*input_get_interrupt_buffer_info(menu->input);
     if(flag_array_get_flag_state(&menu->status,menu_status)==NOT_SET)
         menu->deltaT=0;
+    if(flag_array_get_flag_state(&menu->status,pause_status)==NOT_SET)
+      flag_array_set_flag(&menu->status,NOT_SET,segments_enable);
     unsigned char m_button=input_get_button_event(&menu->input,MENU_BUTTON);
     unsigned char p_button=input_get_button_event(&menu->input,PAUSE_BUTTON);
-    if(m_button==SET||p_button==SET)
-        flag_array_set_flag(&menu->status,SET,segmants_enable);
     if(p_button==SET){
+      flag_array_set_flag(&menu->status,SET,segments_enable);
         if(flag_array_get_flag_state(&menu->status,pause_status)==SET){
             flag_array_set_flag(&menu->status,NOT_SET,pause_status);
             flag_array_set_flag(&menu->status,NOT_SET,menu_status);
         }
-        else
+        else{
             flag_array_set_flag(&menu->status,SET,pause_status);
+	    
+	}
     }
-    if(m_button==SET&&flag_array_get_flag_state(&menu->status,pause_status)==SET){
+    if(m_button==SET){
+      flag_array_set_flag(&menu->status,SET,segments_enable);
+      if(flag_array_get_flag_state(&menu->status,pause_status)==SET){
         if(flag_array_get_flag_state(&menu->status,menu_status)==NOT_SET){
-            flag_array_set_flag(&menu->status,SET,menu_status);
+	  flag_array_set_flag(&menu->status,SET,menu_status);
             menu->time_type_to_change=minute;
         }
         else{
-            if(menu->time_type_to_change==hour)
-                menu->time_type_to_change=second;
+	  if(menu->time_type_to_change==hour)
+	      menu->time_type_to_change=second;
             else
-                menu->time_type_to_change++;
+	      menu->time_type_to_change++;
         }
+      }
     }
     menu_update_points(menu);
 }
@@ -84,4 +90,50 @@ void menu_update_points(menu_t *menu)
             break;
         }
     }
+}
+
+
+char *menu_get_deltaT(menu_t *menu)
+{
+#ifdef __DEBUG
+    assert(menu!=NULL);
+    assert(menu_valid(menu)==1);
+#endif
+    return &menu->deltaT;
+}
+
+unsigned char menu_get_pause_value(menu_t *menu)
+{
+#ifdef __DEBUG
+    assert(menu!=NULL);
+    assert(menu_valid(menu)==1);
+#endif
+   return  flag_array_get_flag_state(&menu->status,pause_status);
+}
+
+unsigned char menu_get_segment_enable_value(menu_t *menu)
+{
+#ifdef __DEBUG
+    assert(menu!=NULL);
+    assert(menu_valid(menu)==1);
+#endif
+    return  flag_array_get_flag_state(&menu->status,segments_enable);
+}
+
+byte_union_t menu_get_points(menu_t *menu)
+{
+#ifdef __DEBUG
+    assert(menu!=NULL);
+    assert(menu_valid(menu)==1);
+#endif
+    return menu->points;
+}
+
+time_type_t* menu_get_time_to_change(menu_t *menu)
+{
+#ifdef __DEBUG
+    assert(menu!=NULL);
+    assert(menu_valid(menu)==1);
+#endif
+    return time->time_type_to_change;
 }

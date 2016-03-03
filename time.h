@@ -14,12 +14,10 @@
 /* time is a struct that contains time_types usualy arranged in increasing order*/
 
 typedef struct{
-   unsigned char second,minute,hour;
+   unsigned char time_second,time_minute,time_hour;
 }time_t;
 
-
-unsigned char get_time_piece_value(time_t *t,time_type type);
-
+unsigned char* time_get_piece(time_t *t,time_type type);
 
 /*time_set_piece:
   Sets the time_piece of the time struct named by the time_type type
@@ -53,9 +51,11 @@ int time_valid(time_t *t);
 
 void time_initialize(time_t *t);
 
-unsigned char time_change_piece(time_t *t,char val,time_type type);
+void time_change_piece(time_t *t,char val,time_type type);
 
 unsigned char time_is_zero(time_t *t);
+
+unsigned char time_decrease(time_t *t);
 
 #endif	/* TIME_H */
 

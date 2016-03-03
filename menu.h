@@ -9,7 +9,7 @@
 typedef enum{
     pause_status,
     menu_status,
-    segmants_enable
+    segments_enable
 }menu_flags;
 
 typedef struct{
@@ -34,7 +34,7 @@ unsigned char menu_get_pause_value(menu_t *menu);
 
 unsigned char menu_get_segment_enable_value(menu_t *menu);
 
-unsigned char menu_get_points(menu_t *menu);
+byte_union_t menu_get_points(menu_t *menu);
 
 time_type_t* menu_get_time_to_change(menu_t *menu);
 
