@@ -12,7 +12,7 @@
 typedef union{
 	unsigned char flag_byte;
 	struct{
-		unsigned music_flag:1,segments_flag:1,no_flags:6;
+		unsigned music_flag:1,segments_flag:1,dont_reset:1,no_flags:5;
 	};
 }main_timer_flags_t;
 

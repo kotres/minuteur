@@ -9,17 +9,25 @@
 #define	OUTPUT_H
 
 #include "byte_union.h"
-#include "software_timer.h"
 #include <xc.h>
 
+typedef union{
+    unsigned char adress_byte;
+    struct{
+        unsigned a0:1,a1:1,a2:1,no_adress:5;
+    };
+}adress_t;
 
 typedef struct{
     byte_union_t buffer[6];
-    unsigned char output_enable;
+    adress_t adress;
 }output_t;
 
+int output_valid(output_t *output);
 
-void output_initialize(output_t *output);
+void output_refresh_pins(output_t *output);
+
+void output_initialize(output_t *output,byte_union_t buffer[]);
 
 void output_update(output_t *output,byte_union_t buffer[]);
 

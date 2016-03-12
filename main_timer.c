@@ -14,6 +14,7 @@ void main_timer_initialize(main_timer_t *timer)
   time_initialize(&timer->time);
   timer->flags.flag_byte=0;
   timer->flags.segments_flag=SET;
+  timer->flags.dont_reset=SET;
   main_timer_fill_output_buffer(timer);
   menu_initialize(&timer->menu);
 #ifdef __DEBUG
@@ -28,10 +29,11 @@ void main_timer_update(main_timer_t *timer)
   assert(main_timer_valid(timer)==1);
 #endif
 	menu_update(&timer->menu);
-	unsigned char menu_status=menu_get_pause_value(&timer->menu);
+	unsigned char pause_status=menu_get_pause_value(&timer->menu);
 	if(pause_status==SET){
-		//to do pause hardware timer
-		if(time_is_zero(&timer->time)==1)
+		//to pause hardware timer
+        TMR1ON=NOT_SET;
+		if(time_is_zero(&timer->time)==1&&timer->flags.dont_reset==NOT_SET)
 			main_timer_initialize(&timer);
 		else{
 			time_change_piece(&timer->time,
@@ -40,14 +42,15 @@ void main_timer_update(main_timer_t *timer)
 			timer->flags.segments_flag=SET;
 		}
 	}
-	else{
-		/*to do unpause hardware timer
-		if timer overflowed reset overflow flag and decrease main_timer*/
-		if(time_is_zero(&timer->time)==1){
-			timer->flags.music_flag=SET;
-			timer->flags.segments_flag=SET;
-		}
-	}
+	else
+        TMR1ON=SET;/*to unpause hardware timer*/
+    if(TMR1IF==SET){
+        TMR1IF=NOT_SET;
+        if(time_decrease(&timer->time)==SET){
+            timer->flags.music_flag=SET;
+            timer->flags.segments_flag=SET;
+        }
+    }
 	main_timer_fill_output_buffer(&timer);
 }
 
