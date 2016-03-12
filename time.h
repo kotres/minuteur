@@ -24,7 +24,7 @@ unsigned char* time_get_piece(time_t *t,time_type_t type);
   to the value of val
   Needs:
   -a valid time pointer
-  -a valid value fo the time_piece to be changed
+  -a valid value for the time_piece to be changed
   -a valid time_type
 */
 

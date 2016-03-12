@@ -3,17 +3,17 @@
 
 #include "input.h"
 #include "byte_union.h"
-#include "flag_array.h"
 #include "time_type.h"
 
-typedef enum{
-    pause_status,
-    menu_status,
-    segments_enable
-}menu_flags;
+typedef union{
+	unsigned char flag_byte;
+	struct{
+		unsigned pause_status:1,menu_status:1,segments_enable:1,no_flags:5;
+	};
+}menu_flags_t;
 
 typedef struct{
-  flag_array_t status;
+  menu_flags_t flags;
   byte_union_t points;
   time_type_t time_type_to_change;
   char deltaT;

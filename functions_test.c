@@ -5,7 +5,7 @@
 void test_of_time_type(void)
 {
   printf("test of time_type_valid\n");
-  time_type type=second;
+  time_type_t type=second;
   if(time_type_valid(type)==0)
     printf("second KO\n");
   type=minute;
@@ -21,34 +21,63 @@ void test_of_time_type(void)
   }
 }
 
-void test_of_flag_array(void)
+void test_of_input(void)
 {
-    printf("test of flag_array_initialize\n");
-    flag_array_t array;
-    flag_array_initialise(&array);
-    if(flag_array_valid(&array)==0)
-        printf("flag_array_initialize KO\n");
-    printf("test of flag_array_valid\n");
-    array.flags_number=10;
-    if(flag_array_valid(&array)==1)
-        printf("flag_array_valid KO\n");
-    printf("test of flag_array_set_numbers\n");
-    flag_array_set_numbers(&array,4);
-    if(array.flags_number!=4)
-        printf("flag_array_set_numbers KO\n");
-    printf("test of flag_array_set_flag\n");
-    flag_array_set_flag(&array,NOT_SET,1);
-    if(array.flags.b1!=0)
-        printf("flag_array_set_flag KO\n");
-    printf("test of flag_array_get_flag_state\n");
-    if(flag_array_get_flag_state(&array,1)!=array.flags.b1)
-        printf("flag_array_get_flag_state KO\n");
-    
+	printf("test of input\n");
+	printf("test of input_initialize\n");
+	input_t input;
+	input_t *ptr=&input;
+	input_initialize(ptr);
+	if(ptr->interrupt_buffer!=0)
+		printf("input_initialize interrupt_buffer KO\n");
+	if(ptr->flags.flag_byte!=0)
+		printf("input_initialize flags KO\n");
+	printf("test of input_valid\n");
+	if(input_valid(ptr)==0)
+		printf("input_valid false negative\n");
+	ptr->flags.no_flags=5;
+	if(input_valid(ptr)==1)
+		printf("input_valid false positive\n");
+	input_initialize(ptr);
+	//buttons
+	printf("test of input_update\n");
+	RA2=0;
+	RA3=0;
+	input_update(ptr);
+	if(ptr->flags.menu_button_state==NOT_SET)
+		printf("input_update menu_button_state KO\n");
+	if(ptr->flags.pause_button_state==NOT_SET)
+		printf("inpt_update menu_pause_state KO\n");
+	if(ptr->flags.menu_button_ignore==NOT_SET)
+		printf("input_update menu_button_ignre KO\n");
+	if(ptr->flags.pause_button_ignore==NOT_SET)
+		printf("input_update pause_button_ignore KO\n");
+	input_update(ptr);
+	if(ptr->flags.menu_button_state==SET)
+		printf("input_update menu_button_state KO\n");
+	if(ptr->flags.pause_button_state==SET)
+		printf("inpt_update menu_pause_state KO\n");
+	if(ptr->flags.menu_button_ignore==NOT_SET)
+		printf("input_update menu_button_ignre KO\n");
+	if(ptr->flags.pause_button_ignore==NOT_SET)
+		printf("input_update pause_button_ignore KO\n");
+	RA2=1;
+	RA3=1;
+	input_update(ptr);
+	if(ptr->flags.menu_button_state==SET)
+		printf("input_update menu_button_state KO\n");
+	if(ptr->flags.pause_button_state==SET)
+		printf("inpt_update menu_pause_state KO\n");
+	if(ptr->flags.menu_button_ignore==SET)
+		printf("input_update menu_button_ignre KO\n");
+	if(ptr->flags.pause_button_ignore==SET)
+		printf("input_update pause_button_ignore KO\n");
 }
+
 
 //test function
 void test_function(void)
 {
     test_of_time_type();
-    test_of_flag_array();
+    test_of_input();
 }

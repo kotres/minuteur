@@ -12,9 +12,8 @@ void main_timer_initialize(main_timer_t *timer)
   assert(timer!=NULL);
 #endif
   time_initialize(&timer->time);
-  flag_array_initialise(&timer->flags);
-  flag_array_set_numbers(&timer->flags,2);
-  flag_array_set_flag(&timer->flags,SET,SEGMENTS_FLAG);
+  timer->flags.flag_byte=0;
+  timer->flags.segments_flag=SET;
   main_timer_fill_output_buffer(timer);
   menu_initialize(&timer->menu);
 #ifdef __DEBUG
@@ -30,8 +29,44 @@ void main_timer_update(main_timer_t *timer)
 #endif
 	menu_update(&timer->menu);
 	unsigned char menu_status=menu_get_pause_value(&timer->menu);
-	unsigned char segment_staus=menu_get_segment_enable_value(&timer->menu);
+	if(pause_status==SET){
+		//to do pause hardware timer
+		if(time_is_zero(&timer->time)==1)
+			main_timer_initialize(&timer);
+		else{
+			time_change_piece(&timer->time,
+					*menu_get_deltaT(&timer->menu),
+					*menu_get_time_to_change(&timer->menu));
+			timer->flags.segments_flag=SET;
+		}
+	}
+	else{
+		/*to do unpause hardware timer
+		if timer overflowed reset overflow flag and decrease main_timer*/
+		if(time_is_zero(&timer->time)==1){
+			timer->flags.music_flag=SET;
+			timer->flags.segments_flag=SET;
+		}
+	}
+	main_timer_fill_output_buffer(&timer);
+}
 
+unsigned char main_timer_get_segment_enable(main_timer_t *timer)
+{
+#ifdef __DEBUG
+  assert(timer!=NULL);
+  assert(main_timer_valid(timer)==1);
+#endif
+  return timer->flags.segments_flag;
+}
+
+unsigned char main_timer_music_enable(main_timer_t *timer)
+{
+#ifdef __DEBUG
+  assert(timer!=NULL);
+  assert(main_timer_valid(timer)==1);
+#endif
+  return timer->flags.music_flag;
 }
 
 void main_timer_fill_output_buffer(main_timer_t *timer)
@@ -53,4 +88,13 @@ void main_timer_fill_output_buffer(main_timer_t *timer)
   timer->segments[3].b7=points.b3;
   timer->segments[4].b7=points.b4;
   timer->segments[5].b7=points.b5;
+}
+
+byte_union_t* main_timer_get_output_buffer(main_timer_t *timer)
+{
+#ifdef __DEBUG
+  assert(timer!=NULL);
+  assert(main_timer_valid(timer)==1);
+#endif
+  return &timer->segments;
 }

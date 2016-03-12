@@ -15,7 +15,6 @@
 typedef struct{
     main_timer_t main_timer;
     output_t output;
-    software_timer_t software_timer;
 }instance_t;
 
 void instance_init(instance_t *instance);

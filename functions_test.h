@@ -6,10 +6,10 @@
 #include <assert.h>
 
 #include "time_type.h"
-#include "flag_array.h"
+#include "input.h"
 
 void test_of_time_type(void);
-void test_of_flag_array(void);
+void test_of_input(void);
 void test_function(void);
 
 #endif

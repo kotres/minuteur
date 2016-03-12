@@ -2,9 +2,14 @@
 #include <assert.h>
 
 volatile char interrupt_variable=0;
+#ifdef __GNU_BUILD
+    unsigned char RA2=0,RA3=0;
+#endif
 
 int input_valid(input_t *input)
 {
+	if(input->flags.no_flags!=0)
+		return 0;
     return 1;
 }
 
@@ -15,8 +20,7 @@ void input_initialize(input_t *input)
 #endif
     input->interrupt_buffer=0;
     interrupt_variable=0;
-    flag_array_initialise(&input->button_flags);
-    flag_array_set_numbers(&input->button_flags,4);
+    input->flags.flag_byte=0;
 #ifdef __DEBUG
     assert(input_valid(input));
 #endif
@@ -31,37 +35,37 @@ void input_update(input_t *input)
     input->interrupt_buffer=interrupt_variable;
     interrupt_variable=0;
     if(RA2==0){
-        if(flag_array_get_flag_state(&input->button_flags,menu_button_ignore)==NOT_SET){
-            flag_array_set_flag(&input->button_flags,SET,menu_button_state);
-            flag_array_set_flag(&input->button_flags,SET,menu_button_ignore);
+        if(input->flags.menu_button_ignore==NOT_SET){
+        	input->flags.menu_button_state=SET;
+        	input->flags.menu_button_ignore=SET;
         }
-        else{
-            flag_array_set_flag(&input->button_flags,NOT_SET,menu_button_state);
-        }
+        else
+        	input->flags.menu_button_state=NOT_SET;
     }
     else{
-        flag_array_set_flag(&input->button_flags,NOT_SET,menu_button_ignore);
-        flag_array_set_flag(&input->button_flags,NOT_SET,menu_button_ignore);
+    	input->flags.menu_button_state=NOT_SET;
+    	input->flags.menu_button_ignore=NOT_SET;
     }
     if(RA3==0){
-        if(flag_array_get_flag_state(&input->button_flags,time_button_ignore)==NOT_SET){
-            flag_array_set_flag(&input->button_flags,SET,time_button_state);
-            flag_array_set_flag(&input->button_flags,SET,time_button_ignore);
+        if(input->flags.pause_button_state==NOT_SET){
+        	input->flags.pause_button_state=SET;
+        	input->flags.pause_button_ignore=SET;
         }
-        else{
-            flag_array_set_flag(&input->button_flags,NOT_SET,time_button_state);
-        }
+        else
+        	input->flags.pause_button_state=NOT_SET;
     }
     else{
-        flag_array_set_flag(&input->button_flags,NOT_SET,time_button_ignore);
-        flag_array_set_flag(&input->button_flags,NOT_SET,time_button_ignore);
+    	input->flags.pause_button_ignore=NOT_SET;
+    	input->flags.pause_button_state=NOT_SET;
     }
 }
 
+#ifndef __GNU_BUILD
 void interrupt input_interrupt_function(void)
 {
     
 }
+#endif
 
 unsigned char input_get_button_event(input_t *input,unsigned char button)
 {
@@ -71,8 +75,8 @@ unsigned char input_get_button_event(input_t *input,unsigned char button)
     assert(button==PAUSE_BUTTON||button==MENU_BUTTON);
 #endif
     if(button==PAUSE_BUTTON)
-        return flag_array_get_flag_state(&input->button_flags,time_button_state);
-    return flag_array_get_flag_state(&input->button_flags,menu_button_state);
+        return input->flags.pause_button_state;
+    return input->flags.menu_button_state;
 }
 
 char* input_get_interrupt_buffer(input_t *input)
@@ -81,22 +85,10 @@ char* input_get_interrupt_buffer(input_t *input)
     assert(input!=NULL);
     assert(input_valid(input));
 #endif
-    char* buffer=input->interrupt_buffer;
+    char* buffer=&input->interrupt_buffer;
 #ifdef __DEBUG
     assert(buffer!=NULL);
 #endif
     return buffer;
 }
 
-const char* input_get_interrupt_buffer_info(const input_t *input)
-{
-#ifdef __DEBUG
-    assert(input!=NULL);
-    assert(input_valid(input));
-#endif
-    const char* buffer=input->interrupt_buffer;
-#ifdef __DEBUG
-    assert(buffer!=NULL);
-#endif
-    return buffer;
-}
