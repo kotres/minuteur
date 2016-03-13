@@ -3,18 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/menu.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/byte_union.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/menu.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/music_select.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/time_type.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/flag_array.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/input.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/byte_union.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/time.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/input.h</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/time.c</file>
-            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur.X/main.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/main_timer.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/output.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/menu.h</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/time.h</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/instance.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/main_timer.h</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/output.h</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/time.c</file>
+            <file>file:/C:/Users/Michel/MPLABXProjects/minuteur/instance.h</file>
         </group>
     </open-files>
 </project-private>

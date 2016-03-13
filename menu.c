@@ -35,7 +35,7 @@ void menu_initialize(menu_t *menu)
 void menu_update(menu_t *menu)
 {
     input_update(&menu->input);
-    menu->deltaT=*input_get_interrupt_buffer_info(menu->input);
+    menu->deltaT=*input_get_interrupt_buffer(menu->input);
     if(menu->flags.menu_status==NOT_SET)
         menu->deltaT=0;
     if(menu->flags.pause_status==NOT_SET)
@@ -59,10 +59,8 @@ void menu_update(menu_t *menu)
             menu->time_type_to_change=minute;
         }
         else{
-        	if(menu->time_type_to_change==hour)
-        		menu->time_type_to_change=second;
-            else
-            	menu->time_type_to_change++;
+        	menu->time_type_to_change++;
+            menu->time_type_to_change=menu->time_type_to_change%TIME_TYPE_NBR;
         }
       }
     }

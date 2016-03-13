@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define TIME_TYPE_NBR 3
 /* time_type contains the names of divisions of time.
    We could add day and month if needed*/
 

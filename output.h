@@ -21,6 +21,8 @@ typedef union{
 typedef struct{
     byte_union_t buffer[6];
     adress_t adress;
+    unsigned short output_timer;
+    unsigned char enable;
 }output_t;
 
 int output_valid(output_t *output);
@@ -29,7 +31,7 @@ void output_refresh_pins(output_t *output);
 
 void output_initialize(output_t *output,byte_union_t buffer[]);
 
-void output_update(output_t *output,byte_union_t buffer[]);
+void output_update(output_t *output,byte_union_t buffer[],unsigned char output_enable);
 
 #endif	/* OUTPUT_H */
 
