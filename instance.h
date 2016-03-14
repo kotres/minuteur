@@ -7,7 +7,7 @@
 
 #ifndef INSTANCE_H
 #define	INSTANCE_H
-#include "flag_array.h"
+#include "byte_union.h"
 #include "main_timer.h"
 #include "output.h"
 #include "music.h"
@@ -24,7 +24,11 @@ typedef struct{
     main_timer_t main_timer;
     output_t output;
     music_t music;
+    byte_union_t output_buffer[6];
+    
 }instance_t;
+
+int instance_valid(instance_t *instance);
 
 void instance_init(instance_t *instance);
 

@@ -32,8 +32,6 @@
     <itemPath>byte_union.c</itemPath>
     <itemPath>input.c</itemPath>
     <itemPath>main_timer.h</itemPath>
-    <itemPath>software_timer.c</itemPath>
-    <itemPath>software_timer.h</itemPath>
     <itemPath>functions_test.h</itemPath>
     <itemPath>functions_test.c</itemPath>
     <itemPath>hardware_config.h</itemPath>
@@ -42,6 +40,7 @@
     <itemPath>main_timer.c</itemPath>
     <itemPath>music.h</itemPath>
     <itemPath>output.c</itemPath>
+    <itemPath>music.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>

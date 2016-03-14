@@ -1,4 +1,5 @@
 #include "input.h"
+#include "byte_union.h"
 #include <assert.h>
 
 volatile char interrupt_variable=0;
@@ -79,16 +80,12 @@ unsigned char input_get_button_event(input_t *input,unsigned char button)
     return input->flags.menu_button_state;
 }
 
-char* input_get_interrupt_buffer(input_t *input)
+char input_get_interrupt_buffer(input_t *input)
 {
 #ifdef __DEBUG
     assert(input!=NULL);
     assert(input_valid(input));
 #endif
-    char* buffer=&input->interrupt_buffer;
-#ifdef __DEBUG
-    assert(buffer!=NULL);
-#endif
-    return buffer;
+    return input->interrupt_buffer;
 }
 

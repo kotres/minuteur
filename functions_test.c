@@ -1,4 +1,5 @@
 #include "functions_test.h"
+#include "byte_union.h"
 
 //test of function in time_type.c
 

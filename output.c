@@ -5,6 +5,13 @@
 
 int output_valid(output_t *output)
 {
+    assert(output!=NULL);
+    if(output->buffer==NULL)
+        return 0;
+    if(output->enable!=NOT_SET&&output->enable!=SET)
+        return 0;
+    if(output->adress.no_adress!=0)
+        return 0;
     return 1;
 }
 
@@ -15,7 +22,7 @@ void output_refresh_pins(output_t *output)
     assert(output_valid(output));
 #endif
     adress_t adr=output->adress;
-    byte_union_t segments=output->buffer[adr];
+    byte_union_t segments=output->buffer[adr.adress_byte];
     if(output->enable==NOT_SET){
         RC0=SET;
         RC1=SET;
@@ -36,14 +43,16 @@ void output_refresh_pins(output_t *output)
 #endif
 }
 
-void output_initialize(output_t *output,byte_union_t buffer[])
+void output_initialize(output_t *output)
 {
 #ifdef __DEBUG
     assert(output!=NULL);
     assert(buffer!=NULL);
 #endif
-    //to do initialize timer 3;
-    output->buffer=buffer;
+    TMR3IF=0;
+    for(int i=0;i<6;i++){
+        output->buffer[i].byte=0;
+    }
     output->adress.adress_byte=0;
     output->enable=SET;
     output->output_timer=0;
@@ -57,7 +66,9 @@ void output_update(output_t *output,byte_union_t buffer[],unsigned char output_e
     assert(buffer!=NULL);
     assert(output_valid(output));
 #endif
-    output->buffer=buffer;
+    for(int i=0;i<6;i++){
+        output->buffer[i]=buffer[i];
+    }
     if(TMR3IF==SET){
        TMR3IF=NOT_SET;
        if(output_enable==NOT_SET){

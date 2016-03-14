@@ -10,15 +10,12 @@ unsigned char* time_get_piece(time_t *t,time_type_t type)
   switch(type){
   case second:
     return &t->time_second;
-    break;
   case  minute:
     return &t->time_minute;
-    break;
   case hour:
     return &t->time_hour;
-    break;
   }
-  return -1;
+  return NULL;
 }
 
 void time_set_piece(time_t *t,unsigned char val,time_type_t type)
@@ -37,7 +34,14 @@ void time_set_piece(time_t *t,unsigned char val,time_type_t type)
 
 int time_valid(time_t *t)
 {
-  return 1;
+    assert(t!=NULL);
+    if(t->time_hour>12)
+        return 0;
+    if(t->time_minute>59)
+        return 0;
+    if(t->time_second>59)
+        return 0;
+    return 1;
 }
 
 void time_initialize(time_t *t)
@@ -110,5 +114,4 @@ unsigned char time_decrease(time_t *t)
   }
   else
     return 1;
-  return -1;
 }

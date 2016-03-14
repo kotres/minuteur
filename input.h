@@ -45,7 +45,7 @@ void input_update(input_t *input);
 
 unsigned char input_get_button_event(input_t *input,unsigned char button);
 
-char* input_get_interrupt_buffer(input_t *input);
+char input_get_interrupt_buffer(input_t *input);
 
 #endif	/* INPUT_H */
 

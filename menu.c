@@ -1,7 +1,7 @@
 #include "menu.h"
 #include <assert.h>
 
-int menu_valid(menu_t menu)
+int menu_valid(menu_t *menu)
 {
 	assert(menu!=NULL);
 	if(menu->flags.no_flags!=0)
@@ -10,7 +10,7 @@ int menu_valid(menu_t menu)
 		return 0;
 	if(time_type_valid(menu->time_type_to_change)==0)
 		return 0;
-	if(input_valid(menu->input)==0)
+	if(input_valid(&menu->input)==0)
 		return 0;
     return 1;
 }
@@ -35,7 +35,7 @@ void menu_initialize(menu_t *menu)
 void menu_update(menu_t *menu)
 {
     input_update(&menu->input);
-    menu->deltaT=*input_get_interrupt_buffer(menu->input);
+    menu->deltaT=input_get_interrupt_buffer(&menu->input);
     if(menu->flags.menu_status==NOT_SET)
         menu->deltaT=0;
     if(menu->flags.pause_status==NOT_SET)
@@ -135,5 +135,5 @@ time_type_t* menu_get_time_to_change(menu_t *menu)
     assert(menu!=NULL);
     assert(menu_valid(menu)==1);
 #endif
-    return menu->time_type_to_change;
+    return &menu->time_type_to_change;
 }

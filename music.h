@@ -14,9 +14,11 @@ typedef struct{
     unsigned int milli;
 }music_t;
 
-void music_init(music_t music);
+int music_valid(music_t *music);
 
-void music_update(music_t music,unsigned char music_enable);
+void music_init(music_t *music);
+
+void music_update(music_t *music,unsigned char music_enable);
 
 #endif	/* MUSIC_H */
 

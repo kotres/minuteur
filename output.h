@@ -9,7 +9,10 @@
 #define	OUTPUT_H
 
 #include "byte_union.h"
+#include "hardware_config.h"
 #include <xc.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef union{
     unsigned char adress_byte;
@@ -29,7 +32,7 @@ int output_valid(output_t *output);
 
 void output_refresh_pins(output_t *output);
 
-void output_initialize(output_t *output,byte_union_t buffer[]);
+void output_initialize(output_t *output);
 
 void output_update(output_t *output,byte_union_t buffer[],unsigned char output_enable);
 

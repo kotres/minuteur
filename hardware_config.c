@@ -15,11 +15,23 @@ void hardware_config_uart(void)
 
 void hardware_config_pins(void)
 {
-    PORTA=0b00001100;
-    PORTB=0b00000000;
-    PORTC=0b00001110;
+    TRISA=0b00001111;
+    TRISB=0b00000000;
+    TRISC=0b00000000;
 }
 
+void hardware_config_timer1(void)
+{
+    SOSCPWR=0;
+    T1CON=0b100010100;
+    TMR1L=0;
+    TMR1H=0;
+}
+
+void hardware_config_timer3(void)
+{
+    T3CON=0b00000001;
+}
 
 void hardware_config_init(void)
 {

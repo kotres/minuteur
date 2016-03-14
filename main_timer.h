@@ -1,7 +1,7 @@
 #ifndef MAIN_TIMER_H
 #define MAIN_TIMER_H
 
-#include "flag_array.h"
+#include "hardware_config.h"
 #include "byte_union.h"
 #include "time.h"
 #include "menu.h"
@@ -35,6 +35,6 @@ unsigned char main_timer_music_enable(main_timer_t *timer);
 
 void main_timer_fill_output_buffer(main_timer_t *timer);
 
-byte_union_t* main_timer_get_output_buffer(main_timer_t *timer);
+void main_timer_get_output_buffer(main_timer_t *timer,byte_union_t buffer[]);
 
 #endif

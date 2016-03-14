@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c time.c time_type.c instance.c byte_union.c input.c software_timer.c functions_test.c hardware_config.c menu.c main_timer.c output.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c time.c time_type.c instance.c byte_union.c input.c functions_test.c hardware_config.c menu.c main_timer.c output.c music.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time.p1 ${OBJECTDIR}/time_type.p1 ${OBJECTDIR}/instance.p1 ${OBJECTDIR}/byte_union.p1 ${OBJECTDIR}/input.p1 ${OBJECTDIR}/software_timer.p1 ${OBJECTDIR}/functions_test.p1 ${OBJECTDIR}/hardware_config.p1 ${OBJECTDIR}/menu.p1 ${OBJECTDIR}/main_timer.p1 ${OBJECTDIR}/output.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/time.p1.d ${OBJECTDIR}/time_type.p1.d ${OBJECTDIR}/instance.p1.d ${OBJECTDIR}/byte_union.p1.d ${OBJECTDIR}/input.p1.d ${OBJECTDIR}/software_timer.p1.d ${OBJECTDIR}/functions_test.p1.d ${OBJECTDIR}/hardware_config.p1.d ${OBJECTDIR}/menu.p1.d ${OBJECTDIR}/main_timer.p1.d ${OBJECTDIR}/output.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time.p1 ${OBJECTDIR}/time_type.p1 ${OBJECTDIR}/instance.p1 ${OBJECTDIR}/byte_union.p1 ${OBJECTDIR}/input.p1 ${OBJECTDIR}/functions_test.p1 ${OBJECTDIR}/hardware_config.p1 ${OBJECTDIR}/menu.p1 ${OBJECTDIR}/main_timer.p1 ${OBJECTDIR}/output.p1 ${OBJECTDIR}/music.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/time.p1.d ${OBJECTDIR}/time_type.p1.d ${OBJECTDIR}/instance.p1.d ${OBJECTDIR}/byte_union.p1.d ${OBJECTDIR}/input.p1.d ${OBJECTDIR}/functions_test.p1.d ${OBJECTDIR}/hardware_config.p1.d ${OBJECTDIR}/menu.p1.d ${OBJECTDIR}/main_timer.p1.d ${OBJECTDIR}/output.p1.d ${OBJECTDIR}/music.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time.p1 ${OBJECTDIR}/time_type.p1 ${OBJECTDIR}/instance.p1 ${OBJECTDIR}/byte_union.p1 ${OBJECTDIR}/input.p1 ${OBJECTDIR}/software_timer.p1 ${OBJECTDIR}/functions_test.p1 ${OBJECTDIR}/hardware_config.p1 ${OBJECTDIR}/menu.p1 ${OBJECTDIR}/main_timer.p1 ${OBJECTDIR}/output.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time.p1 ${OBJECTDIR}/time_type.p1 ${OBJECTDIR}/instance.p1 ${OBJECTDIR}/byte_union.p1 ${OBJECTDIR}/input.p1 ${OBJECTDIR}/functions_test.p1 ${OBJECTDIR}/hardware_config.p1 ${OBJECTDIR}/menu.p1 ${OBJECTDIR}/main_timer.p1 ${OBJECTDIR}/output.p1 ${OBJECTDIR}/music.p1
 
 # Source Files
-SOURCEFILES=main.c time.c time_type.c instance.c byte_union.c input.c software_timer.c functions_test.c hardware_config.c menu.c main_timer.c output.c
+SOURCEFILES=main.c time.c time_type.c instance.c byte_union.c input.c functions_test.c hardware_config.c menu.c main_timer.c output.c music.c
 
 
 CFLAGS=
@@ -129,14 +129,6 @@ ${OBJECTDIR}/input.p1: input.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/input.d ${OBJECTDIR}/input.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/input.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/software_timer.p1: software_timer.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/software_timer.p1.d 
-	@${RM} ${OBJECTDIR}/software_timer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/software_timer.p1  software_timer.c 
-	@-${MV} ${OBJECTDIR}/software_timer.d ${OBJECTDIR}/software_timer.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/software_timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/functions_test.p1: functions_test.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/functions_test.p1.d 
@@ -176,6 +168,14 @@ ${OBJECTDIR}/output.p1: output.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/output.p1  output.c 
 	@-${MV} ${OBJECTDIR}/output.d ${OBJECTDIR}/output.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/output.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/music.p1: music.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/music.p1.d 
+	@${RM} ${OBJECTDIR}/music.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/music.p1  music.c 
+	@-${MV} ${OBJECTDIR}/music.d ${OBJECTDIR}/music.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/music.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
@@ -226,14 +226,6 @@ ${OBJECTDIR}/input.p1: input.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/input.d ${OBJECTDIR}/input.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/input.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/software_timer.p1: software_timer.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/software_timer.p1.d 
-	@${RM} ${OBJECTDIR}/software_timer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/software_timer.p1  software_timer.c 
-	@-${MV} ${OBJECTDIR}/software_timer.d ${OBJECTDIR}/software_timer.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/software_timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/functions_test.p1: functions_test.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/functions_test.p1.d 
@@ -273,6 +265,14 @@ ${OBJECTDIR}/output.p1: output.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/output.p1  output.c 
 	@-${MV} ${OBJECTDIR}/output.d ${OBJECTDIR}/output.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/output.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/music.p1: music.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/music.p1.d 
+	@${RM} ${OBJECTDIR}/music.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/music.p1  music.c 
+	@-${MV} ${OBJECTDIR}/music.d ${OBJECTDIR}/music.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/music.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
