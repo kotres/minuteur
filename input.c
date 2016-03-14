@@ -64,7 +64,11 @@ void input_update(input_t *input)
 #ifndef __GNU_BUILD
 void interrupt input_interrupt_function(void)
 {
-    
+    INTF=NOT_SET;
+    if(RA0==NOT_SET)
+        interrupt_variable++;
+    else
+        interrupt_variable--;
 }
 #endif
 

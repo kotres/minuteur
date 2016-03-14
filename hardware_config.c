@@ -33,8 +33,19 @@ void hardware_config_timer3(void)
     T3CON=0b00000001;
 }
 
+void hardware_config_interrupt(void)
+{
+    GIE=1;
+    INTE=1;
+    INTEDG=0;
+    INTPPS=0b00001;
+}
+
 void hardware_config_init(void)
 {
     hardware_config_uart();
     hardware_config_pins();
+    hardware_config_timer1();
+    hardware_config_timer3();
+    hardware_config_interrupt();
 }

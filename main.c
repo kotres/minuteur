@@ -9,10 +9,11 @@
 #define _XTAL_FREQ 32768
 #include "hardware_config.h"
 
-#include "functions_test.h"
+#include "instance.h"
 
  main() 
  { 
-     test_function();
+     hardware_config_init();
+     instance_loop();
      return(0); 
  } 

@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=minuteur
+PROJECTNAME=minuteur.X
 
 # Active Configuration
 DEFAULTCONF=default

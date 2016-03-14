@@ -44,6 +44,7 @@ void hardware_config_uart(void);
 void hardware_config_pins(void);
 void hardware_config_timer1(void);
 void hardware_config_timer3(void);
+void hardware_config_interrupt(void);
 void hardware_config_init(void);
 
 #endif	/* HARDWARE_CONFIG_H */
